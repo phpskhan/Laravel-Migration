@@ -7,6 +7,54 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## All About Laravel 10 Migration
+
+# What is Migration?
+
+With the help of migration we can generate the tables in our database dynamically. The benefit of migration is more when multiple developers are working together on a large project.
+
+# Migration Schema / Field Types
+
+    public function up(): void
+    {
+        Schema::create('ksabih', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 100);
+            $table->string('email', 150)->unique();
+            $table->string('age', 3);
+            $table->longText('password');
+            $table->integer('votes');
+            $table->timestamps();
+        });
+    }
+
+    
+## Migration Commands
+
+# Migration Methods / Functions
+
+Up – To Create Table
+Down – To drop Table
+
+# Migrate All Existing Tables 
+Php artisan migrate
+
+# Create Migration File for Specific Table as given name
+Php artisan make:migration create_users_table
+
+# Delete all tables from Database / Rest Migration
+Php artisan migrate:reset – migration table not delete
+
+# Rollback Migration
+Php artisan migrate:rollback –step 3
+
+# Migrate Specific Table
+Php artisan migrate –path=/database/migrations/2023_10_11_123456_ create_users_table
+
+# Roll Back All Data / Migrate All Data
+Php artisan migrate:refresh
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
